@@ -8,7 +8,6 @@ const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 
 // const routes = require('./routes');
-// 
 
 // Set up apollo server
 const app = express();
