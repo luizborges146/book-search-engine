@@ -11,10 +11,7 @@ const link = createHttpLink({
   uri: '/graphql'
 });
 
-const client = new ApolloClient({
-  uri: '/graphql',
-  cache: new InMemoryCache(),
-});
+
 
 
 const authLink = setContext((_, { headers }) => {
@@ -27,6 +24,11 @@ const authLink = setContext((_, { headers }) => {
       authorization: token ? `Bearer ${token}` : '',
     },
   };
+});
+
+const client = new ApolloClient({
+  uri: authLink.concat(link),
+  cache: new InMemoryCache(),
 });
 
 function App() {
