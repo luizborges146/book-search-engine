@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
-// import { createUser } from '../utils/API'; // no need, check if can be deleted
+
 import Auth from '../utils/auth';
 
 import { useMutation } from '@apollo/react-hooks';
@@ -25,7 +25,7 @@ const SignupForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // check if form has everything (as per react-bootstrap docs)
+
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -36,7 +36,6 @@ const SignupForm = () => {
       const { data } = await addUser({
         variables: { ...userFormData }
       });
-
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);

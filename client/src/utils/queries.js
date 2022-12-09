@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 export const GET_ME = gql`
   {
     me {
-      _id
+   
       username
       email
       savedBooks {
@@ -17,3 +17,4 @@ export const GET_ME = gql`
     }
   }
 `;
+   // _id
